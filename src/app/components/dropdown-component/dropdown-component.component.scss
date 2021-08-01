@@ -1,0 +1,56 @@
+.dropdown {
+    position: relative;
+}
+
+.dropdown__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 300px;
+    padding: 10px 15px;
+    border: none;
+    background-color: white;
+    text-align: start;
+}
+
+li {
+    list-style: none;
+    padding: 10px 15px 10px 35px;
+}
+
+ul {
+    position: absolute;
+    left: -1px;
+    padding: 1px;
+    margin: 0;
+    width: 300px;
+    background-color: white;
+}
+
+.opened {
+    outline: 1px solid lightseagreen;
+    border-bottom: 1px solid lightgray;
+}
+
+.selected {
+    background-color: lightseagreen;
+}
+
+.check {
+    display: none;
+    position: absolute;
+    left: 14px;
+    font-size: 14px;
+    color: gray;
+}
+
+.visible {
+    display: inline;
+    pointer-events: none;
+}
+
+.arrows {
+    pointer-events: none;
+    font-size: 14px;
+    color: gray;
+}

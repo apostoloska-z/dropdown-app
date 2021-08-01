@@ -1,0 +1,36 @@
+<div class="dropdown">
+   <button 
+      type="button"
+      (click)="toggleOptionsVisibility()" 
+      [ngClass]="{opened: optionsVisibility}"
+      id="dropdown" 
+      class="dropdown__button">
+      {{dropdownHeader}}
+      <span *ngIf="!optionsVisibility" class="material-icons-outlined arrows">
+         unfold_more
+      </span>
+      <span *ngIf="optionsVisibility" class="material-icons-outlined arrows">
+         unfold_less
+      </span>
+   </button>  
+   <ul 
+      *ngIf="optionsVisibility" 
+      id="dropdown-items" 
+      class="dropdown__items">  
+      <li 
+         *ngFor="let item of options" 
+         (click)="handleOptionsClick($event)" 
+         [ngClass]="{selected: optionsSelected.includes(item)}"
+         id="{{item}}"> 
+         <span 
+            class="material-icons-outlined check"
+            [ngClass]="{visible: optionsSelected.includes(item) && optionsSelected.length>1}"
+         >
+            done
+         </span>
+         {{item}} 
+      </li>  
+   </ul>
+</div>
+
+   
