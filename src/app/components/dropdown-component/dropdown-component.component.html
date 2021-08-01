@@ -6,10 +6,14 @@
       id="dropdown" 
       class="dropdown__button">
       {{dropdownHeader}}
-      <span *ngIf="!optionsVisibility" class="material-icons-outlined arrows">
+      <span 
+         *ngIf="!optionsVisibility" 
+         class="material-icons-outlined arrows">
          unfold_more
       </span>
-      <span *ngIf="optionsVisibility" class="material-icons-outlined arrows">
+      <span 
+         *ngIf="optionsVisibility" 
+         class="material-icons-outlined arrows">
          unfold_less
       </span>
    </button>  
@@ -24,8 +28,7 @@
          id="{{item}}"> 
          <span 
             class="material-icons-outlined check"
-            [ngClass]="{visible: optionsSelected.includes(item) && optionsSelected.length>1}"
-         >
+            [ngClass]="{visible: optionsSelected.includes(item) && optionsSelected.length>1}">
             done
          </span>
          {{item}} 
