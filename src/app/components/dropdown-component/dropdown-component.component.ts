@@ -7,25 +7,33 @@ import { handleOptionsVisibilityService } from "../../services/handleOptionsVisi
   styleUrls: ['./dropdown-component.component.scss']
 })
 export class DropdownComponentComponent implements OnInit {
-  @Input() public dropdownHeader: string = '';
   @Input() public options: Array<any> = [];
   public optionsVisibility: boolean = false;
   public optionsSelected: Array<any> = [];
   public option: any;
+  public alertVisibility: boolean = false;
 
   constructor(
     private handleOptionsVisibilityService: handleOptionsVisibilityService,
   ) {}
 
   ngOnInit(): void {
+    this.optionsSelected.push(this.options[0]);
     this.handleOptionsVisibilityService.visibility$
       .subscribe(
-        data => this.optionsVisibility = data
-      )
+        data => {
+          this.optionsVisibility = data;
+          if (!this.optionsSelected.length) {
+            this.handleNoOptionSelection();
+          }
+        })
   }
 
   public toggleOptionsVisibility(): void {
     this.optionsVisibility = !this.optionsVisibility;
+    if (!this.optionsSelected.length) {
+      this.handleNoOptionSelection();
+    }
   }
 
   public handleOptionsClick($event: any): void {
@@ -36,5 +44,13 @@ export class DropdownComponentComponent implements OnInit {
     } else {
       this.optionsSelected.push(this.option);
     }
+    if (!this.optionsSelected.length) {
+      this.alertVisibility = true;
+    } else {this.alertVisibility = false}
+  }
+
+  public handleNoOptionSelection(): void {
+    this.optionsSelected.push(this.options[0]);
+    this.alertVisibility = false;
   }
 }

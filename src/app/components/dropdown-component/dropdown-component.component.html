@@ -5,7 +5,12 @@
       [ngClass]="{opened: optionsVisibility}"
       id="dropdown" 
       class="dropdown__button">
-      {{dropdownHeader}}
+      <span *ngIf="!optionsSelected[1]">
+         {{optionsSelected[0]}}
+      </span>
+      <span *ngIf="optionsSelected[1]">
+         {{optionsSelected.length}}
+      </span>
       <span 
          *ngIf="!optionsVisibility" 
          class="material-icons-outlined arrows">
@@ -33,6 +38,14 @@
          </span>
          {{item}} 
       </li>  
+      <p 
+         *ngIf="alertVisibility"
+         class="alert">
+         <span class="material-icons-outlined warning">
+            warning_amber
+         </span>
+         You need to select at least one option. Otherwise a default value will be used when the dropdown is closed.
+      </p>
    </ul>
 </div>
 

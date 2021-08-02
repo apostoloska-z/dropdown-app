@@ -6,8 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./countries-component.component.scss']
 })
 export class CountriesComponentComponent implements OnInit {
-  public header = "Countries options"
-  public countries = ["Ukraine", "Belarus", "Poland", "Macedonia"];
+  public countries: Array<any> = ["Ukraine", "Belarus", "Poland", "Macedonia"];
   constructor() { }
 
   ngOnInit(): void {

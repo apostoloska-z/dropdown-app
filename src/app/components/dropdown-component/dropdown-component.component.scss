@@ -13,9 +13,20 @@
     text-align: start;
 }
 
-li {
+li, .alert {
     list-style: none;
     padding: 10px 15px 10px 35px;
+}
+
+.alert {
+    margin: 0;
+    color: red;
+    border: 1px solid red;
+}
+
+.warning {
+    vertical-align: bottom;
+    font-size: 18px;
 }
 
 ul {
